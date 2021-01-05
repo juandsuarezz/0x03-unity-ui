@@ -62,8 +62,7 @@ public class PlayerController : MonoBehaviour
         {
             //Debug.Log("Game Over!");
             SetGameOver();
-            health = 5;
-            score = 0;
+            StartCoroutine(LoadScene(3));
             //SceneManager.LoadScene("maze");
         }
     }
@@ -87,6 +86,7 @@ public class PlayerController : MonoBehaviour
         if (other.tag == "Goal")
         {
             SetWin();
+            StartCoroutine(LoadScene(3));
             //Debug.Log("You win!");
         }
     }
@@ -116,5 +116,13 @@ public class PlayerController : MonoBehaviour
         winLoseBG.color = Color.red;
         winLoseText.text = "Game Over!";
         winLoseText.color = Color.white;
+    }
+
+    IEnumerator LoadScene(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        health = 5;
+        score = 0;
+        SceneManager.LoadScene("maze");
     }
 }
