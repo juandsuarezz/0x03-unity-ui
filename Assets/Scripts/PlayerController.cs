@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     private int score = 0;
     public int health = 5;
     public Text scoreText;
+    public Text healthText;
 
     private Rigidbody rb;
 
@@ -67,12 +68,14 @@ public class PlayerController : MonoBehaviour
         {
             Destroy(other.gameObject);
             SetScoreText();
+            //Debug.Log($"Score: {score}");
         }
 
         if (other.tag == "Trap")
         {
             health -= 1;
-            Debug.Log($"Health: {health}");
+            SetHealthText();
+            //Debug.Log($"Health: {health}");
         }
 
         if (other.tag == "Goal")
@@ -85,5 +88,10 @@ public class PlayerController : MonoBehaviour
     {
         score++;
         scoreText.text = "Score: " + score.ToString();
+    }
+
+    void SetHealthText()
+    {
+        healthText.text = "Health: " + health.ToString();
     }
 }

@@ -6591,6 +6591,7 @@ MonoBehaviour:
   speed: 1000
   health: 5
   scoreText: {fileID: 597507269}
+  healthText: {fileID: 1861277301}
 --- !u!4 &1711212154 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2986296744829020972, guid: b39b369c88709b44ea546155ac7d4fee,
