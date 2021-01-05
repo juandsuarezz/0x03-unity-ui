@@ -9,8 +9,13 @@ public class PlayerController : MonoBehaviour
     public float speed = 1000f;
     private int score = 0;
     public int health = 5;
+
     public Text scoreText;
     public Text healthText;
+    public Text winLoseText;
+
+    public Image winLoseBG;
+    public GameObject winLose;
 
     private Rigidbody rb;
 
@@ -80,7 +85,8 @@ public class PlayerController : MonoBehaviour
 
         if (other.tag == "Goal")
         {
-            Debug.Log("You win!");
+            SetWin();
+            //Debug.Log("You win!");
         }
     }
 
@@ -93,5 +99,13 @@ public class PlayerController : MonoBehaviour
     void SetHealthText()
     {
         healthText.text = "Health: " + health.ToString();
+    }
+
+    void SetWin()
+    {
+        winLose.SetActive(true);
+        winLoseBG.color = Color.green;
+        winLoseText.text = "You win!";
+        winLoseText.color = Color.black;
     }
 }
