@@ -31,6 +31,10 @@ public class PlayerController : MonoBehaviour
     {
         playermove();
         CheckHealth();
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene(0);
+        }
     }
 
     void playermove()
